@@ -110,7 +110,7 @@ label {
 /*mode preview*/
 #dark-preview {
     background: #070707de;
-    color: white;
+    color: white !important;
 }
 
 #dark-preview div.btn-container i.fa-sun-o{
