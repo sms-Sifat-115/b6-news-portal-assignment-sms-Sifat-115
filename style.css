@@ -109,8 +109,7 @@ label {
 
 /*mode preview*/
 #dark-preview {
-    background: #070707de;
-    color: white !important;
+    background: black;
 }
 
 #dark-preview div.btn-container i.fa-sun-o{
@@ -123,7 +122,7 @@ label {
 }
 
 #white-preview{
-    background: #fff;
+    background: white;
     color: #000;
 }
 
@@ -142,9 +141,14 @@ p.by a{
 }
 
 #dark-preview p.by a{
-    color: #777;
+    color: rgb(204, 203, 203);
 }
 
 #white-preview p.by a{
     color: #000;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(0, 0, 33);
 }
