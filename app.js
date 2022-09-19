@@ -13,7 +13,7 @@ input.addEventListener("change", (e) => {
 
 
 // API
-const cardDiv = document.getElementById("card-container");
+const newsDiv = document.getElementById("news-container");
 const spinner = document.getElementById("spinner");
 loadNews = async () => {
     try {
@@ -29,7 +29,7 @@ loadNews = async () => {
 };
 
 const displayNews = (news) => {
-    const newsContainer = document.getElementById("news-container");
+    const newsHeading = document.getElementById("nav-bar");
 
     news.forEach((oneCategory) => {
         const newsli = document.createElement("li");
@@ -38,7 +38,7 @@ const displayNews = (news) => {
         newsli.innerHTML = `
         <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
         `;
-        newsContainer.appendChild(newsli);
+        newsHeading.appendChild(newsli);
     });
 };
 
@@ -48,7 +48,7 @@ const clickedBtn = (btnId) => {
     try {
         let formatedBtnId = "0" + btnId;
         clickNews(formatedBtnId);
-        cardDiv.appendChild((cardDiv.innerHTML = "<div></div>"));
+        newsDiv.appendChild((newsDiv.innerHTML = "<div></div>"));
     } catch {
         console.log("error 404");
     }
@@ -66,6 +66,7 @@ const clickNews = async (category_id) => {
         const news = data.data;
 
         everyNewsCard(news);
+        return allNewsOnThatCategory;
     }
     catch {
         console.log('error 404');
@@ -110,7 +111,7 @@ const everyNewsCard = (news) => {
                         </div>
                     </div>
                     `;
-            cardDiv.appendChild(forEveryCards);
+            newsDiv.appendChild(forEveryCards);
 
         });
         toggleSpinner(false);
@@ -121,7 +122,7 @@ const everyNewsCard = (news) => {
             <button class="btn btn-outline-success p-4 m-5" disabled>NEWS not Available 😥 !</button>
             </div>
             `;
-        cardDiv.appendChild(forEveryCards);
+        newsDiv.appendChild(forEveryCards);
         toggleSpinner(false);
         sectionHiding(false);
     }
