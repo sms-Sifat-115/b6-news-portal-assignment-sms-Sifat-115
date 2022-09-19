@@ -15,8 +15,8 @@ input.addEventListener("change", (e) => {
 localStorage.setItem('theme', input);
 
 // API
-const cardDiv = document.getElementById("news-container");
-const loader = document.getElementById("loader");
+const cardDiv = document.getElementById("card-container");
+const spinner = document.getElementById("spinner");
 loadNews = async () => {
     try {
         const url = `https://openapi.programming-hero.com/api/news/categories;`
@@ -25,22 +25,23 @@ loadNews = async () => {
         displayNews(data.data.news_category);
     }
     catch {
-        console.log('error 404');
+        console.log('error occured');
     }
 
 };
 
 const displayNews = (news) => {
-    const newsContainer = document.getElementById("nav-bar");
+    const newsContainer = document.getElementById("news-container");
 
     news.forEach((oneCategory) => {
-        const newsli = document.getElementByIdgetElement("nav-item");
+        const newsli = document.createElement("li");
         const id = oneCategory.category_id;
+        const newsName = oneCategory.category_name;
         newsli.innerHTML = `
-        <button class="nav-item btn" id="nav_btn" onclick="clickedBtn(${id})">${oneCategory.category_name}</button>
+        <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
         `;
         newsContainer.appendChild(newsli);
-      
+        // clickNews(id);
     });
 };
 
@@ -52,9 +53,9 @@ const clickedBtn = (btnId) => {
         clickNews(formatedBtnId);
         cardDiv.appendChild((cardDiv.innerHTML = "<div></div>"));
     } catch {
-        console.log("error 404");
+        console.log("error occured");
     }
-    
+    //it shows error on console field but its working so i didn't change the code cause i didn't find anymore solution
 };
 
 const clickNews = async (category_id) => {
@@ -67,10 +68,8 @@ const clickNews = async (category_id) => {
             ? data.data[0]._id
             : "No News Available";
         const news = data.data;
-      
 
         everyNewsCard(news);
-        
     }
     catch {
         console.log('error occured');
@@ -87,35 +86,34 @@ const everyNewsCard = (news) => {
             sectionHiding(true);
             newsNumber.innerText = news.length;
         }
-       
+        
         news.forEach((perNews) => {
             singleNewsArray.push(perNews._id);
             let forEveryCards = document.createElement("div");
-            forEveryCards.setAttribute('id', 'theme')
-            
+        
             forEveryCards.innerHTML = `
-    <div id="news-card-container" class="card mb-5">
-        <div class="row ">
-            <div class="col-4">
-                <img src="${perNews.image_url}" class="img-fluid rounded-start h-100" alt="...">
-            </div>
-            <div class="col-8">
-                <div class="card-body">
-                    <h5 class="card-title mb-2">${perNews.title}</h5>
-                    <p class="card-text  mb-5">${perNews.details.slice(0, 250) + '...'}</p>
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <img src="${perNews.author.img}" class="author-picture" alt="...">
-                            <p>${perNews.author.name ? perNews.author.name : 'No Author Found'}</p>
+                    <div id="news-card-container" class="card mb-5">
+                        <div class="row ">
+                            <div class="col-4">
+                                <img src="${perNews.image_url}" class="img-fluid rounded-start h-100" alt="...">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">${perNews.title}</h5>
+                                    <p class="card-text  mb-5">${perNews.details.slice(0, 250) + '...'}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <img src="${perNews.author.img}" class="author-picture" alt="...">
+                                            <p>${perNews.author.name ? perNews.author.name : 'No Author Found'}</p>
+                                        </div>
+                                        <p>Total view: ${perNews.total_view ? perNews.total_view : 'No details available'}</p>
+                                        <button type="button" class="btn btn-primary modal-btn" data-bs-toggle="modal" data-bs-target="#newsDetailModal"> --> </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p>Total view: ${perNews.total_view ? perNews.total_view : 'No details available'}</p>
-                        <button type="button" class="btn btn-primary modal-btn" data-bs-toggle="modal" data-bs-target="#newsDetailModal"> --> </button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
+                    `;
             cardDiv.appendChild(forEveryCards);
 
         });
@@ -123,15 +121,15 @@ const everyNewsCard = (news) => {
     } else {
         let forEveryCards = document.createElement("div");
         forEveryCards.innerHTML = `
-    <div id="news-card-container" class="border border-0">
-    <h1 class="text-center border border-0">NO NEWS FOUND !</h1>
-    </div>
-    `;
+            <div id="news-card-container" class="d-flex justify-content-center align-items-center">
+            <button class="btn btn-outline-success p-4 m-5" disabled>NEWS not Available 😥 !</button>
+            </div>
+            `;
         cardDiv.appendChild(forEveryCards);
         toggleSpinner(false);
         sectionHiding(false);
     }
-   
+    // console.log(singleNewsArray);
     displayIndividualNews(singleNewsArray);
 };
 
@@ -144,20 +142,25 @@ const displayIndividualNews = async (news_id) => {
     console.log(data);
 }
 
+// const displayIndividualNews2 = this.news_id.map(async newId => {
+//     console.log(newId);
+//     const res = await fetch(https://openapi.programming-hero.com/api/news/${newId._id});
+//     const data = await res.json();
+//     return data;
+// });
 
 const toggleSpinner = isLoading => {
-    const loaderSection = document.getElementById('loader');
     if (isLoading) {
-        loaderSection.classList.remove('d-none');
+        spinner.classList.remove('d-none');
     }
     else {
-        loaderSection.classList.add('d-none');
+        spinner.classList.add('d-none');
     }
 }
 
 const sectionHiding = total => {
-    const newsNumberSection = document.getElementById('number-of-news');
-    if (total != 0) {
+    const newsNumberSection = document.getElementById('news-count');
+    if (total) {
         newsNumberSection.classList.remove('d-none');
     }
     else {
