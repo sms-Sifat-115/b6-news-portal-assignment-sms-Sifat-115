@@ -40,7 +40,7 @@ const displayNews = (news) => {
         <button class="nav-item btn" id="nav_btn" onclick="clickedBtn(${id})">${oneCategory.category_name}</button>
         `;
         newsContainer.appendChild(newsli);
-        // clickNews(id);
+      
     });
 };
 

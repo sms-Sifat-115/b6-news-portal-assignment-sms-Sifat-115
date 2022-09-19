@@ -5,14 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blogs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body class="container bg-dark">
-    <h1 class="text-light text-bg-info rounded-3 text-center m-5 p-3">Blogs</h1>
+  <body class="container">
+    <!-- Header Starts -->
+    <header class="container-fluid  my-3 d-flex justify-content-between sticky-top align-items-center">
+      <a class="text-success text-decoration-none" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
+      <div class="d-flex flex-row">
+          <a href="index.html" class="text-decoration-none mx-3">News</a>
+          <a href="blog.html" class="text-decoration-none mx-3">Blogs</a>
+          <div class="btn-container d-inline mx-3 d-none d-lg-inline">
+              <i class="fa fa-sun-o" aria-hidden="true"></i>
+                <label class="switch btn-color-mode-switch">
+                      <input type="checkbox" name="color_mode" id="color_mode" value="1">
+                      <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+                  </label>
+                <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+      </div>
+  </header>
+  <!-- Header Ends -->
+  <!-- Blogs Starts -->
+    <h1 class="text-light text-bg-success rounded-3 text-center m-5 p-3">Blogs</h1>
     <Section class="d-flex justify-content-center align-items-center m-5 p-5">
         <div class="accordion accordion-flush rounded-3" id="accordionFlushExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed bg-secondary text-light text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     What are the difference between var, let and const?
                 </button>
               </h2>
@@ -38,7 +58,7 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed bg-secondary text-light text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <button class="accordion-button collapsed bg-dark text-light text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                     What are the difference between Arrow Function and regular function?
                 </button>
               </h2>
@@ -56,7 +76,7 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed bg-secondary text-light text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <button class="accordion-button collapsed bg-dark text-light text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                   Why we use template string?
                 </button>
               </h2>
@@ -66,6 +86,19 @@
             </div>
           </div>
     </Section>
+    <!-- Blogs Ends -->
+    <!-- Footer Start -->
+    <footer class="container-fluid d-flex justify-content-center align-items-center text-center p-4 fixed-bottom">
+      <div>
+        <a class="text-success text-decoration-none" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
+        <div class="text-secondary my-4"><p>Mountain View, California, U.S.</p>
+            <p>Privacy Ploicy  |   Terms of use</p>
+          </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+    
+    <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
