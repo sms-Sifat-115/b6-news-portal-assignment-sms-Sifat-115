@@ -1,18 +1,16 @@
 // Theme Switch Function.
-const input = document.querySelector("#color_mode");
-const output = document.getElementById("theme")  
+const input = document.querySelector("#color_mode"); 
+
 input.addEventListener("change", (e) => {  
  if (e.target.checked) {  
   document.body.setAttribute("id", "dark-preview");
-  output.setAttribute("class", "card text-bg-dark");
-  localStorage.setItem("id", "dark-preview");
-  localStorage.setItem("class", "card text-bg-dark");
+
  } else {  
-  document.body.setAttribute("id", "light-preview")
-  output.removeAttribute("class", "card text-bg-dark"); 
+  document.body.setAttribute("id", "light-preview");
+  
  }  
 });
-localStorage.setItem('theme', input);
+
 
 // API
 const cardDiv = document.getElementById("card-container");
@@ -41,7 +39,6 @@ const displayNews = (news) => {
         <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
         `;
         newsContainer.appendChild(newsli);
-        // clickNews(id);
     });
 };
 
@@ -53,9 +50,8 @@ const clickedBtn = (btnId) => {
         clickNews(formatedBtnId);
         cardDiv.appendChild((cardDiv.innerHTML = "<div></div>"));
     } catch {
-        console.log("error occured");
+        console.log("error 404");
     }
-    //it shows error on console field but its working so i didn't change the code cause i didn't find anymore solution
 };
 
 const clickNews = async (category_id) => {
@@ -66,13 +62,13 @@ const clickNews = async (category_id) => {
 
         const allNewsOnThatCategory = data.status
             ? data.data[0]._id
-            : "No News Available";
+            : "NEWS not Available 😥 !";
         const news = data.data;
 
         everyNewsCard(news);
     }
     catch {
-        console.log('error occured');
+        console.log('error 404');
     }
 };
 
@@ -100,7 +96,7 @@ const everyNewsCard = (news) => {
                             <div class="col-8">
                                 <div class="card-body">
                                     <h5 class="card-title mb-2">${perNews.title}</h5>
-                                    <p class="card-text  mb-5">${perNews.details.slice(0, 250) + '...'}</p>
+                                    <p class="card-text  mb-5">${perNews.details.slice(0, 200) + '...'}</p>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <img src="${perNews.author.img}" class="author-picture" alt="...">
@@ -142,12 +138,7 @@ const displayIndividualNews = async (news_id) => {
     console.log(data);
 }
 
-// const displayIndividualNews2 = this.news_id.map(async newId => {
-//     console.log(newId);
-//     const res = await fetch(https://openapi.programming-hero.com/api/news/${newId._id});
-//     const data = await res.json();
-//     return data;
-// });
+
 
 const toggleSpinner = isLoading => {
     if (isLoading) {
