@@ -31,13 +31,13 @@ loadNews = async () => {
 };
 
 const displayNews = (news) => {
-    const newsContainer = document.getElementById("nav_bar");
+    const newsContainer = document.getElementById("nav-bar");
 
     news.forEach((oneCategory) => {
-        const newsli = document.createElement("li");
+        const newsli = document.getElementByIdgetElement("nav-item");
         const id = oneCategory.category_id;
         newsli.innerHTML = `
-        <button class="btn" id="nav_btn" onclick="clickedBtn(${oneCategory.category_id})">${oneCategory.category_name}</button>
+        <button class="nav-item btn" id="nav_btn" onclick="clickedBtn(${id})">${oneCategory.category_name}</button>
         `;
         newsContainer.appendChild(newsli);
         // clickNews(id);
@@ -157,7 +157,7 @@ const toggleSpinner = isLoading => {
 
 const sectionHiding = total => {
     const newsNumberSection = document.getElementById('number-of-news');
-    if (total) {
+    if (total != 0) {
         newsNumberSection.classList.remove('d-none');
     }
     else {
