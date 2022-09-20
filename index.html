@@ -70,7 +70,7 @@
                     <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(07)">Arts</button>
                   </li>
                   <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(08)">All News</button>
+                    <button class="btn btn-outline-primary" id="nav_btn all-news" onclick="clickedBtn(08)">All News</button>
                   </li>
                   <li class="nav-item">
                     <div class="btn-container d-block mx-3 d-inline d-lg-none">
@@ -91,10 +91,11 @@
       <!-- Navbar Ends -->
       <!-- API Starts -->
       <!-- News Count Starts-->
-          <section id="news-count" class="container border bg-white p-2 d-none">
-            <h2 class="fw-bolder"><span id="news-number">0</span> items founds for category</h2>
+          <section id="news-count" class="container d-none">
+            <h2 class="border border-primary text-primary p-2 m-3 text-center rounded-3"><span id="news-number">0</span> items founds for category</h2>
           </section>
       <!-- News Count Ends-->
+      <!-- News API Starts -->
       <section class="container mt-5" id="news-card-container">
           <div id="news-container" class="col-12 mb-5"></div>
           <!-- <div id="news-card-container" class="card mb-3 col-12"> -->
@@ -151,7 +152,7 @@
 
 
     <!-- Footer Start  -->
-    <footer class="container-fluid d-flex justify-content-center align-items-center text-center p-4 fixed-bottom">
+    <footer class="container-fluid d-flex justify-content-center align-items-center text-center p-4 mt-5 fixed-bottom">
       <div>
         <a class="text-success text-decoration-none" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
         <div class="text-secondary my-4"><p>Mountain View, California, U.S.</p>

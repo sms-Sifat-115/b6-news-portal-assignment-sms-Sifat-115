@@ -17,7 +17,7 @@ const newsDiv = document.getElementById("news-container");
 const spinner = document.getElementById("spinner");
 loadNews = async () => {
     try {
-        const url = `https://openapi.programming-hero.com/api/news/categories;`
+        const url = `https://openapi.programming-hero.com/api/news/categories`
         const res = await fetch(url);
         const data = await res.json();
         displayNews(data.data.news_category);
@@ -28,19 +28,19 @@ loadNews = async () => {
 
 };
 
-const displayNews = (news) => {
-    const newsHeading = document.getElementById("nav-bar");
+// const displayNews = (news) => {
+//     const newsHeading = document.getElementById("nav-bar");
 
-    news.forEach((oneCategory) => {
-        const newsli = document.createElement("li");
-        const id = oneCategory.category_id;
-        const newsName = oneCategory.category_name;
-        newsli.innerHTML = `
-        <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
-        `;
-        newsHeading.appendChild(newsli);
-    });
-};
+//     news.forEach((oneCategory) => {
+//         const newsli = document.createElement("li");
+//         const id = oneCategory.category_id;
+//         const newsName = oneCategory.category_name;
+//         newsli.innerHTML = `
+//         <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
+//         `;
+//         newsHeading.appendChild(newsli);
+//     });
+// };
 
 const clickedBtn = (btnId) => {
     //spinner start
@@ -50,13 +50,13 @@ const clickedBtn = (btnId) => {
         clickNews(formatedBtnId);
         newsDiv.appendChild((newsDiv.innerHTML = "<div></div>"));
     } catch {
-        console.log("error 404");
+        console.log("error occured");
     }
 };
 
 const clickNews = async (category_id) => {
     try {
-        const url = `https://openapi.programming-hero.com/api/news/category/${category_id};`
+        const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
         const res = await fetch(url);
         const data = await res.json();
 
@@ -69,7 +69,7 @@ const clickNews = async (category_id) => {
         return allNewsOnThatCategory;
     }
     catch {
-        console.log('error 404');
+        console.log('error occured');
     }
 };
 
@@ -89,10 +89,10 @@ const everyNewsCard = (news) => {
             let forEveryCards = document.createElement("div");
         
             forEveryCards.innerHTML = `
-                    <div id="news-card-container" class="card mb-5">
-                        <div class="row ">
+                    <div id="news-card-container" class="card my-5 ">
+                        <div class="row d-flex flex-column flex-lg-row align-items-center">
                             <div class="col-4">
-                                <img src="${perNews.image_url}" class="img-fluid rounded-start h-100" alt="...">
+                                <img src="${perNews.image_url}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
@@ -100,7 +100,7 @@ const everyNewsCard = (news) => {
                                     <p class="card-text  mb-5">${perNews.details.slice(0, 200) + '...'}</p>
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <img src="${perNews.author.img}" class="author-picture" alt="...">
+                                            <img src="${perNews.author.img}" class="author-picture img-fluid" style="height:50px; width=50px" alt="...">
                                             <p>${perNews.author.name ? perNews.author.name : 'No Author Found'}</p>
                                         </div>
                                         <p>Total view: ${perNews.total_view ? perNews.total_view : 'No details available'}</p>
@@ -126,14 +126,14 @@ const everyNewsCard = (news) => {
         toggleSpinner(false);
         sectionHiding(false);
     }
-    // console.log(singleNewsArray);
+    console.log(singleNewsArray);
     displayIndividualNews(singleNewsArray);
 };
 
 
 const displayIndividualNews = async (news_id) => {
     console.log(news_id);
-    const url = `https://openapi.programming-hero.com/api/news/${news_id};`
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
