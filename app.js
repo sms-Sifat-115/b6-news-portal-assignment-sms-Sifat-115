@@ -15,6 +15,7 @@ input.addEventListener("change", (e) => {
 // API
 const newsDiv = document.getElementById("news-container");
 const spinner = document.getElementById("spinner");
+
 loadNews = async () => {
     try {
         const url = `https://openapi.programming-hero.com/api/news/categories`
@@ -27,20 +28,6 @@ loadNews = async () => {
     }
 
 };
-
-// const displayNews = (news) => {
-//     const newsHeading = document.getElementById("nav-bar");
-
-//     news.forEach((oneCategory) => {
-//         const newsli = document.createElement("li");
-//         const id = oneCategory.category_id;
-//         const newsName = oneCategory.category_name;
-//         newsli.innerHTML = `
-//         <button class="btn" id="nav_btn" onclick="clickedBtn(${id})">${newsName}</button>
-//         `;
-//         newsHeading.appendChild(newsli);
-//     });
-// };
 
 const clickedBtn = (btnId) => {
     //spinner start
@@ -89,7 +76,7 @@ const everyNewsCard = (news) => {
             let forEveryCards = document.createElement("div");
         
             forEveryCards.innerHTML = `
-                    <div id="news-card-container" class="card my-5 ">
+                    <div id="news-card-container" class="card mb-5 ">
                         <div class="row d-flex flex-column flex-lg-row align-items-center">
                             <div class="col-4">
                                 <img src="${perNews.image_url}" class="img-fluid rounded-start" alt="...">
@@ -98,13 +85,13 @@ const everyNewsCard = (news) => {
                                 <div class="card-body">
                                     <h5 class="card-title mb-2">${perNews.title}</h5>
                                     <p class="card-text  mb-5">${perNews.details.slice(0, 200) + '...'}</p>
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between flex-column flex-lg-row align-items-center">
                                         <div>
                                             <img src="${perNews.author.img}" class="author-picture img-fluid" style="height:50px; width=50px" alt="...">
                                             <p>${perNews.author.name ? perNews.author.name : 'No Author Found'}</p>
                                         </div>
                                         <p>Total view: ${perNews.total_view ? perNews.total_view : 'No details available'}</p>
-                                        <button type="button" class="btn btn-primary modal-btn" data-bs-toggle="modal" data-bs-target="#newsDetailModal"> --> </button>
+                                        <button type="button" class="btn btn-primary p-3" data-bs-toggle="modal" data-bs-target="#newsDetailModal"> + </button>
                                     </div>
                                 </div>
                             </div>
@@ -161,3 +148,4 @@ const sectionHiding = total => {
 }
 
 loadNews();
+

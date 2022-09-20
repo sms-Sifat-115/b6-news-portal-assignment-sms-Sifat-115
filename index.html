@@ -14,66 +14,14 @@
     <!-- Main Starts -->
     <main>
         <section class="d-inline-flex flex-lg-column justify-content-evenly align-items-center container-fluid">
-        <!-- Header Starts -->
-        <header class="container-fluid  my-3 d-flex justify-content-between sticky-top align-items-center">
-            <a class="text-success text-decoration-none" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
-            <div class="d-flex flex-row">
-                <a href="" class="text-decoration-none mx-3">News</a>
-                <a href="blog.html" class="text-decoration-none mx-3">Blogs</a>
-                <div class="btn-container d-inline mx-3 d-none d-lg-inline">
-                    <i class="fa fa-sun-o" aria-hidden="true"></i>
-                      <label class="switch btn-color-mode-switch">
-                            <input type="checkbox" name="color_mode" id="color_mode" value="1">
-                            <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
-                        </label>
-                      <i class="fa fa-moon-o" aria-hidden="true"></i>
-                </div>
-            </div>
-        </header>
-        <!-- Header Ends -->
-        <!-- Navbar Starts -->
-        <nav class="container-fluid navbar navbar-expand-lg sticky-top">
-          <div class="container-fluid">
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header">
-                <a class="text-success text-decoration-none d-lg-none" href="#"><i>NEWS <span class="text-bg-success text-light rounded-3 p-2">SEEDs</span></i></a>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-evenly flex-grow-1 pe-3" id="nav-bar">
-                  <li class="nav-item">
-                    <a class="btn btn-outline-primary" aria-current="page" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(01)">Breaking News</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(02)">Regular News</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(03)">International News</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(04)">Sports</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(05)">Entertainment</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(06)">Culture</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn" onclick="clickedBtn(07)">Arts</button>
-                  </li>
-                  <li class="nav-item">
-                    <button class="btn btn-outline-primary" id="nav_btn all-news" onclick="clickedBtn(08)">All News</button>
-                  </li>
-                  <li class="nav-item">
-                    <div class="btn-container d-block mx-3 d-inline d-lg-none">
+          <!-- Header Starts -->
+      
+          <header class="container-fluid  my-3 d-flex justify-content-between align-items-center">
+              <a class="text-success text-decoration-none" href="index.html"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
+              <div class="d-flex flex-row">
+                  <a href="" class="text-decoration-none mx-3">News</a>
+                  <a href="blog.html" class="text-decoration-none mx-3">Blogs</a>
+                  <div class="btn-container d-inline mx-3 d-none d-lg-inline">
                       <i class="fa fa-sun-o" aria-hidden="true"></i>
                         <label class="switch btn-color-mode-switch">
                               <input type="checkbox" name="color_mode" id="color_mode" value="1">
@@ -81,12 +29,65 @@
                           </label>
                         <i class="fa fa-moon-o" aria-hidden="true"></i>
                   </div>
-                  </li>
-                </ul>
+              </div>
+          </header>
+          <!-- Header Ends -->
+          <!-- Navbar Starts -->
+          <nav class="container-fluid navbar navbar-expand-lg sticky-top">
+            <div class="container-fluid">
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <a class="text-success text-decoration-none d-lg-none" href="#"><i>NEWS <span class="text-bg-success text-light rounded-3 p-2">SEEDs</span></i></a>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-evenly flex-grow-1 pe-3" id="nav-bar">
+                    <li class="nav-item">
+                      <a class="btn btn-outline-primary m-3" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(01)">Breaking News</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(02)">Regular News</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(03)">International News</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(04)">Sports</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(05)">Entertainment</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(06)">Culture</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn" onclick="clickedBtn(07)">Arts</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-primary m-3" id="nav_btn all-news" onclick="clickedBtn(08)">All News</button>
+                    </li>
+                    <li class="nav-item">
+                      <div class="btn-container d-block mx-3 d-inline d-lg-none">
+                        <i class="fa fa-sun-o" aria-hidden="true"></i>
+                          <label class="switch btn-color-mode-switch">
+                                <input type="checkbox" name="color_mode" id="color_mode" value="1">
+                                <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+                            </label>
+                          <i class="fa fa-moon-o" aria-hidden="true"></i>
+                    </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
       </section>
       <!-- Navbar Ends -->
       <!-- API Starts -->
@@ -98,37 +99,19 @@
       <!-- News API Starts -->
       <section class="container mt-5" id="news-card-container">
           <div id="news-container" class="col-12 mb-5"></div>
-          <!-- <div id="news-card-container" class="card mb-3 col-12"> -->
-          <!-- <div class="row g-0">
-                  <div class="col-md-4">
-                      <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-12">
-                      <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                              additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                  </div>
-              </div> -->
-          <!-- </div> -->
 
       </section>
       <section class="container">
-          <!-- Button trigger modal -->
-
-
           <!-- Modal Starts-->
           <div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="newsDetailModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h5 class="modal-title" id="newsDetailModalLabel">Modal title</h5>
+                          <h5 class="modal-title" id="newsDetailModalLabel">News Details</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <div class="modal-body">
-                          ...
+                      <div class="modal-body" id="modal-body">
+                          
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -152,12 +135,10 @@
 
 
     <!-- Footer Start  -->
-    <footer class="container-fluid d-flex justify-content-center align-items-center text-center p-4 mt-5 fixed-bottom">
-      <div>
-        <a class="text-success text-decoration-none" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
-        <div class="text-secondary my-4"><p>Mountain View, California, U.S.</p>
-            <p>Privacy Ploicy  |   Terms of use</p>
-          </div>
+    <footer class="container-fluid text-center p-2 mt-2 fixed-bottom">
+      <div class="mt-3">
+        <a class="text-success text-decoration-none mt-3" href="#"><i><span class="p-1">NEWS</span><span class="text-bg-success text-light rounded-3 my-2 p-2">SEEDs</span></i></a>
+        <h6 class="text-center text-secondary mt-2">All Copyrights are resevered @ News Seeds LLC.</h6>
       </div>
     </footer>
     <!-- Footer End  -->
